@@ -1,4 +1,3 @@
-SCRIPT
 const apiUrls = [
     "https://api.uspeoplesearch.net/tcpa/v1?x=",
     "https://api.uspeoplesearch.net/tcpa/report?x="
@@ -13,9 +12,13 @@ async function checkDNCStatus() {
 
     const resultDiv = document.getElementById("result");
     const output = document.getElementById("output");
-    
-    resultDiv.style.display = "none"; // Hide the result div initially
+    const button = document.querySelector("button");
+
+    // Disable button and show loading state
+    button.disabled = true;
+    button.textContent = "Checking...";
     output.textContent = "Loading...";
+    resultDiv.style.display = "none";
 
     try {
         const results = await getDNCResults(phoneNumber);
@@ -24,6 +27,10 @@ async function checkDNCStatus() {
     } catch (error) {
         output.textContent = "Error: " + error.message;
         resultDiv.style.display = "block";
+    } finally {
+        // Re-enable button
+        button.disabled = false;
+        button.textContent = "Check DNC Status";
     }
 }
 
@@ -45,3 +52,13 @@ async function getDNCResults(phoneNumber) {
 
     return results;
 }
+
+// Dynamic Background Color Change
+const body = document.body;
+let colors = ["#ff7e5f", "#feb47b", "#6a11cb", "#2575fc", "#4caf50"];
+let currentIndex = 0;
+
+setInterval(() => {
+    body.style.backgroundColor = colors[currentIndex];
+    currentIndex = (currentIndex + 1) % colors.length;
+}, 5000);
