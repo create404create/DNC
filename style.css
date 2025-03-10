@@ -1,12 +1,11 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Single color background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    transition: background-color 1s ease;
 }
 
 .container {
@@ -91,7 +90,8 @@ footer {
 .animated-line {
     font-size: 14px;
     color: #666;
-    animation: moveLine 10s linear infinite;
+    white-space: nowrap;
+    animation: moveLine 20s linear infinite; /* Slowed down animation */
 }
 
 @keyframes moveLine {
