@@ -52,13 +52,3 @@ async function getDNCResults(phoneNumber) {
 
     return results;
 }
-
-// Dynamic Background Color Change
-const body = document.body;
-let colors = ["#ff7e5f", "#feb47b", "#6a11cb", "#2575fc", "#4caf50"];
-let currentIndex = 0;
-
-setInterval(() => {
-    body.style.backgroundColor = colors[currentIndex];
-    currentIndex = (currentIndex + 1) % colors.length;
-}, 5000);
