@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNC Lookup - Enhanced</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>DNC Lookup</h1>
+        <input type="text" id="phoneNumber" placeholder="Enter Phone Number">
+        <button onclick="checkDNCStatus()">Check DNC Status</button>
+
+        <div id="result">
+            <h2>Results:</h2>
+            <pre id="output"></pre>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p id="scrolling-text">CREATED BY EHTISHAM</p>
+    </div>
+
+    <script>
+        function checkDNCStatus() {
+            let phoneNumber = document.getElementById("phoneNumber").value;
+            let output = document.getElementById("output");
+            let resultDiv = document.getElementById("result");
+            
+            if(phoneNumber.trim() === "") {
+                output.textContent = "Please enter a valid phone number.";
+            } else {
+                output.textContent = `Checking DNC status for: ${phoneNumber}`;
+            }
+            
+            resultDiv.style.display = "block";
+        }
+
+        function changeBackgroundColor() {
+            const colors = ["#f4f4f4", "#ffebcd", "#e6f7ff", "#ffe6e6", "#e6ffe6"];
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+        setInterval(changeBackgroundColor, 5000);
+    </script>
+</body>
+</html>
